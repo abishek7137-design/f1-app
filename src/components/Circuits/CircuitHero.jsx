@@ -33,7 +33,7 @@ export default function CircuitHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Explore the pinnacle of motorsport across the globe.
+          Explore every legendary Grand Prix venue.
         </motion.p>
       </div>
 
