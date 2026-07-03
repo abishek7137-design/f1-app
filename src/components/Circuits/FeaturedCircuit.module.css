@@ -1,0 +1,145 @@
+.featuredSection {
+  position: relative;
+  height: 90vh;
+  min-height: 700px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 4rem 0;
+}
+
+.background {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: url('https://images.unsplash.com/photo-1541461975765-a6e5a408ff39?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 50%, transparent 100%);
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  z-index: 3;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--f1-red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.label::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--f1-red);
+  box-shadow: 0 0 10px rgba(255,24,1,0.8);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: var(--text-white);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin-bottom: 2.5rem;
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statLabel {
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-gray);
+  font-size: 0.8rem;
+}
+
+.statValue {
+  font-family: var(--font-stats);
+  font-size: 1.5rem;
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--f1-red);
+  color: var(--text-white);
+  border: none;
+  padding: 1rem 2rem;
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(255,24,1,0.3);
+}
+
+.ctaButton:hover {
+  transform: translateX(10px);
+  background: #d61400;
+  box-shadow: 0 15px 30px rgba(255,24,1,0.5);
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,0.4) 100%);
+  }
+  
+  .stats {
+    gap: 1.5rem;
+  }
+}

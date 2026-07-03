@@ -1,0 +1,178 @@
+.timelineSection {
+  padding: 6rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--text-white);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  color: var(--f1-red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 1rem;
+}
+
+.timelineContainer {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(255,24,1,0.5) 10%, rgba(255,24,1,0.5) 90%, transparent);
+  transform: translateX(-50%);
+}
+
+.timelineNode {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.timelineNode:nth-child(odd) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 50%;
+}
+
+.nodePoint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  border: 3px solid var(--f1-red);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(255,24,1,0.8);
+  transition: transform 0.3s ease;
+}
+
+.timelineNode:hover .nodePoint {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--f1-red);
+}
+
+.nodeContent {
+  width: calc(100% - 3rem);
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timelineNode:nth-child(even) .nodeContent {
+  margin-right: 3rem;
+  text-align: right;
+}
+
+.timelineNode:nth-child(odd) .nodeContent {
+  margin-left: 3rem;
+  text-align: left;
+}
+
+.timelineNode:hover .nodeContent {
+  transform: translateY(-5px);
+  border-color: rgba(255,24,1,0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.roundBadge {
+  display: inline-block;
+  background: rgba(255,24,1,0.1);
+  color: var(--f1-red);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-family: var(--font-subheading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.grandPrix {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--text-white);
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  color: var(--text-gray);
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+
+.metaData {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timelineNode:nth-child(even) .metaData {
+  justify-content: flex-end;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .timelineLine {
+    left: 20px;
+  }
+  
+  .timelineNode {
+    padding-right: 0;
+    padding-left: 50px;
+    justify-content: flex-start;
+  }
+  
+  .timelineNode:nth-child(odd) {
+    padding-left: 50px;
+  }
+  
+  .nodePoint {
+    left: 20px;
+  }
+  
+  .timelineNode:nth-child(even) .nodeContent,
+  .timelineNode:nth-child(odd) .nodeContent {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .timelineNode:nth-child(even) .metaData {
+    justify-content: flex-start;
+  }
+}

@@ -7,14 +7,50 @@ import { Search, Bell, User } from 'lucide-react';
 import styles from './NavigationBar.module.css';
 
 const NavigationBar = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Show navigation only after scrolling past the 800vh sequence (approx 7.5 * window height)
-    const threshold = typeof window !== 'undefined' ? window.innerHeight * 7.5 : 5000;
-    setIsVisible(latest > threshold);
+    const threshold = typeof window !== 'undefined' ? window.innerHeight * 0.35 : 350;
+    setIsPastHero(latest > threshold);
   });
+
+  useEffect(() => {
+    let observer;
+    
+    const observeFooter = () => {
+      const footer = document.querySelector('footer');
+      if (footer && !observer) {
+        observer = new IntersectionObserver(
+          (entries) => {
+            setIsFooterVisible(entries[0].isIntersecting);
+          },
+          { root: null, rootMargin: '0px', threshold: 0 }
+        );
+        observer.observe(footer);
+        return true;
+      }
+      return false;
+    };
+
+    let observed = observeFooter();
+
+    const mutationObserver = new MutationObserver(() => {
+      if (!observed) {
+        observed = observeFooter();
+      }
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      if (observer) observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
+
+  const isVisible = isPastHero && !isFooterVisible;
 
   const menuItems = [
     { name: 'Season', path: '/season' },
@@ -30,10 +66,10 @@ const NavigationBar = () => {
       {isVisible && (
         <motion.nav 
           className={`${styles.navWrapper} glass`}
-          initial={{ y: -100, opacity: 0 }}
+          initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          exit={{ y: -40, opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Link href="/" className={styles.logo}>
             FORMULA 1
