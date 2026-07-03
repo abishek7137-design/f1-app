@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { circuitsData } from '../../data/mockData';
 import { 
