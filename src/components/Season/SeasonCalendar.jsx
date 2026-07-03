@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ChevronRight, CloudRain, Clock } from 'lucide-react';
 import styles from './SeasonCalendar.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function SeasonCalendar() {
+  const viewport = useResponsiveViewport(0.2);
   const races = [
     { round: 1, month: "Mar", days: "03-05", status: "Completed", circuitId: "bahrain", name: "Bahrain Grand Prix", city: "Sakhir", country: "Bahrain" },
     { round: 2, month: "Mar", days: "17-19", status: "Completed", circuitId: "saudi-arabia", name: "Saudi Arabian Grand Prix", city: "Jeddah", country: "Saudi Arabia" },
@@ -47,7 +49,7 @@ export default function SeasonCalendar() {
           className={styles.subtitle}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
         >
           Calendar
         </motion.h3>
@@ -55,7 +57,7 @@ export default function SeasonCalendar() {
           className={styles.title}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ delay: 0.1 }}
         >
           Race Schedule
@@ -70,7 +72,7 @@ export default function SeasonCalendar() {
               className={styles.raceCard}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: (index % 4) * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className={styles.cardImageBg}>

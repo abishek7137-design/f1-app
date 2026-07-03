@@ -1,7 +1,7 @@
 .heroSection {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   background-color: #050505;
@@ -229,4 +229,9 @@
   .rightColumn { position: absolute; bottom: 0; right: -20%; opacity: 0.5; z-index: 5; }
   .leftColumn { z-index: 20; }
   .lastName { font-size: 4rem; }
+  .garageBg {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }

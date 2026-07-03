@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import styles from './SeasonHero.module.css';
+import { useResponsiveParallax } from '@/hooks/useResponsive';
 
 export default function SeasonHero() {
   const containerRef = useRef(null);
@@ -14,7 +15,7 @@ export default function SeasonHero() {
   }, []);
 
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 1000], [0, 400]);
+  const y1 = useResponsiveParallax(scrollY, [0, 1000], [0, 400]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
 
   const { scrollYProgress } = useScroll({
@@ -22,7 +23,7 @@ export default function SeasonHero() {
     offset: ["start start", "end start"]
   });
 
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "80%"]);
+  const yText = useResponsiveParallax(scrollYProgress, [0, 1], ["0%", "80%"]);
   const opacityText = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const scaleText = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 

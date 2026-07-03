@@ -2,8 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './SectionTitle.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function SectionTitle({ title, subtitle }) {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -11,7 +13,7 @@ export default function SectionTitle({ title, subtitle }) {
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewport}
           transition={{ duration: 0.8 }}
         >
           {title}
@@ -21,7 +23,7 @@ export default function SectionTitle({ title, subtitle }) {
             className={styles.subtitle}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={viewport}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {subtitle}

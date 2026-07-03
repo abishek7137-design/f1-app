@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './FeaturedTeams.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function FeaturedTeams() {
+  const viewport = useResponsiveViewport(0.2);
   const teams = [
     { 
       id: "ferrari", 
@@ -154,7 +156,7 @@ export default function FeaturedTeams() {
               className={styles.teamCard}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={viewport}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               whileHover="hover"
             >

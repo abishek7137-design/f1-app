@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './TicketBooking.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function TicketBooking() {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <section className={styles.section}>
       {/* Hospitality luxury imagery placeholder */}
@@ -14,7 +16,7 @@ export default function TicketBooking() {
         style={{ backgroundImage: `url('/f1-sequence/01200.jpg')` }}
         initial={{ scale: 1.1 }}
         whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
+        viewport={viewport}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
       
@@ -23,7 +25,7 @@ export default function TicketBooking() {
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8 }}
         >
           Paddock Club™
@@ -33,7 +35,7 @@ export default function TicketBooking() {
           className={styles.subtitle}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Experience Formula 1 from the ultimate vantage point. 
@@ -43,7 +45,7 @@ export default function TicketBooking() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Link href="/tickets" className={styles.ctaButton}>

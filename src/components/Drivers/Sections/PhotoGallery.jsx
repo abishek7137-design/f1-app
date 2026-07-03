@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
 import styles from './PhotoGallery.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 // We'll use F1 CDN images for high-quality race shots
 const galleryImages = [
@@ -16,6 +17,7 @@ const galleryImages = [
 ];
 
 export default function PhotoGallery({ driver }) {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <section className={styles.gallerySection}>
       <div className={styles.container}>
@@ -33,7 +35,7 @@ export default function PhotoGallery({ driver }) {
               className={styles.photoWrapper}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={viewport}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ scale: 1.03 }}
             >

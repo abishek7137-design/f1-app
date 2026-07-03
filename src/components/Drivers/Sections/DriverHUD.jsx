@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity } from 'lucide-react';
 import styles from './DriverHUD.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 const Gauge = ({ label, value, color }) => {
   const radius = 40;
@@ -31,7 +32,7 @@ const Gauge = ({ label, value, color }) => {
             strokeDasharray={circumference}
             initial={{ strokeDashoffset: circumference }}
             whileInView={{ strokeDashoffset }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={viewport}
             transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
             style={{ transformOrigin: 'center', transform: 'rotate(-90deg)' }}
           />
@@ -44,6 +45,7 @@ const Gauge = ({ label, value, color }) => {
 };
 
 export default function DriverHUD({ driver }) {
+  const viewport = useResponsiveViewport(0.2);
   if (!driver.hud) return null;
   const hud = driver.hud;
 

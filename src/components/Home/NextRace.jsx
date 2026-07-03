@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './NextRace.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 const NextRace = () => {
   return (
@@ -11,7 +12,7 @@ const NextRace = () => {
         className={styles.header}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={viewport}
         transition={{ duration: 0.8 }}
       >
         <h3 className={styles.subtitle}>Up Next</h3>
@@ -22,7 +23,7 @@ const NextRace = () => {
         className={styles.raceCard}
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={viewport}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <div className={styles.aerialBackground} style={{ backgroundImage: 'url(/images/circuits/next_gp_aerial.png)' }}>
@@ -77,7 +78,7 @@ const NextRace = () => {
                   filter="url(#f1-red-glow)"
                   initial={{ pathLength: 0 }}
                   whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true, margin: "-10%" }}
+                  viewport={viewport}
                   transition={{ duration: 3, ease: "easeInOut" }}
                 />
 

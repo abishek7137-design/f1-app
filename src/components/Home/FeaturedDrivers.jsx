@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './FeaturedDrivers.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function FeaturedDrivers() {
+  const viewport = useResponsiveViewport(0.2);
   const drivers = [
     { 
       id: "max-verstappen", 
@@ -64,7 +66,7 @@ export default function FeaturedDrivers() {
             className={styles.driverCard}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={viewport}
             transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
             whileHover="hover"
           >

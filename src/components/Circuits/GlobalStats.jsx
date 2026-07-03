@@ -2,8 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './GlobalStats.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function GlobalStats() {
+  const viewport = useResponsiveViewport(0.2);
   const stats = [
     { label: 'Total Circuits', value: '24' },
     { label: 'Continents', value: '5' },
@@ -18,7 +20,7 @@ export default function GlobalStats() {
           className={styles.grid}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewport}
           variants={{
             visible: { transition: { staggerChildren: 0.1 } }
           }}

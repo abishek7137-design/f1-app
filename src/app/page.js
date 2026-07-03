@@ -15,8 +15,10 @@ import TicketBooking from '../components/Home/TicketBooking';
 import History from '../components/Home/History';
 import Footer from '../components/Navigation/Footer';
 import styles from './page.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function Home() {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <main>
       <ScrollSequence />
@@ -30,7 +32,7 @@ export default function Home() {
           className={styles.headline}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-20%" }}
+          viewport={viewport}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           FORMULA 1
@@ -40,7 +42,7 @@ export default function Home() {
           className={styles.subheadline}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, margin: "-20%" }}
+          viewport={viewport}
           transition={{ duration: 1.2, delay: 0.3 }}
         >
           The Pinnacle of Motorsport

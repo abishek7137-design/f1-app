@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  min-min-height: 100svh;
   background-color: #050505; /* Deep luxury black */
   padding: 10rem 5%;
   display: flex;

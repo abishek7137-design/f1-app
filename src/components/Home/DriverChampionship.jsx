@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './DriverChampionship.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function DriverChampionship() {
+  const viewport = useResponsiveViewport(0.2);
   const drivers = [
     { 
       pos: 1, 
@@ -57,7 +59,7 @@ export default function DriverChampionship() {
           className={styles.leaderPanel}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
+          viewport={viewport}
           transition={{ duration: 0.8, ease: "easeOut" }}
           whileHover="hover"
         >
@@ -117,7 +119,7 @@ export default function DriverChampionship() {
               className={styles.challengerPanel}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
               whileHover="hover"
             >

@@ -2,10 +2,11 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './CircuitHero.module.css';
+import { useResponsiveParallax } from '@/hooks/useResponsive';
 
 export default function CircuitHero() {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, 250]);
+  const y = useResponsiveParallax(scrollY, [0, 800], [0, 250]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (

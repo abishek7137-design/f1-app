@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { circuitsData } from '../../../data/mockData';
 import { MapPin, Info, Camera, PlayCircle, Map as MapIcon, X, Navigation, CloudRain, Sun, Wind, Trophy, Calendar, Zap, Gauge, Flag, Maximize } from 'lucide-react';
 import styles from './FavoriteCircuitsMap.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function HuntingGrounds() {
+  const viewport = useResponsiveViewport(0.2);
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCircuit, setSelectedCircuit] = useState(null);
@@ -58,7 +60,7 @@ export default function HuntingGrounds() {
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8 }}
         >
           🏁 Hunting Grounds
@@ -67,7 +69,7 @@ export default function HuntingGrounds() {
           className={styles.subtitle}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           The circuits where legends are made.

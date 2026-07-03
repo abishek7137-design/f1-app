@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import styles from './HeadToHead.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function HeadToHead({ currentDriver, allDrivers }) {
+  const viewport = useResponsiveViewport(0.2);
   const [driverAId, setDriverAId] = useState(currentDriver.id);
   const [driverBId, setDriverBId] = useState(allDrivers.find(d => d.id !== currentDriver.id)?.id || allDrivers[0].id);
 
@@ -108,7 +110,7 @@ export default function HeadToHead({ currentDriver, allDrivers }) {
                             style={{ backgroundColor: driverA.teamColor }}
                             initial={{ width: 0 }}
                             whileInView={{ width: `${pctA}%` }}
-                            viewport={{ once: true }}
+                            viewport={viewport}
                             transition={{ duration: 0.8, delay: idx * 0.1 }}
                           />
                         </div>
@@ -122,7 +124,7 @@ export default function HeadToHead({ currentDriver, allDrivers }) {
                             style={{ backgroundColor: driverB.teamColor }}
                             initial={{ width: 0 }}
                             whileInView={{ width: `${pctB}%` }}
-                            viewport={{ once: true }}
+                            viewport={viewport}
                             transition={{ duration: 0.8, delay: idx * 0.1 }}
                           />
                         </div>

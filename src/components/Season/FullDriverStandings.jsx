@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { driversData } from '../../data/mockData';
 import styles from './FullDriverStandings.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function FullDriverStandings() {
+  const viewport = useResponsiveViewport(0.2);
   const sortedDrivers = [...driversData].sort((a, b) => b.points - a.points);
 
   const handleImageError = (e) => {
@@ -26,7 +28,7 @@ export default function FullDriverStandings() {
           className={styles.subtitle}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
         >
           2026 World Championship
         </motion.h3>
@@ -34,7 +36,7 @@ export default function FullDriverStandings() {
           className={styles.title}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ delay: 0.1 }}
         >
           Driver Standings
@@ -49,7 +51,7 @@ export default function FullDriverStandings() {
             style={{ '--team-color': driver.color }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={viewport}
             transition={{ duration: 0.6, delay: (index % 4) * 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Left Content (60%) */}

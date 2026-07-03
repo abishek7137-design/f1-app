@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  min-min-height: 100svh;
   /* Carbon fiber background pattern */
   background-color: #020202;
   background-image: url('/images/ui/carbon-pattern.png');

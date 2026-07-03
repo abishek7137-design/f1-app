@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Technology.module.css';
+import { useResponsiveParallax } from '@/hooks/useResponsive';
 
 export default function Technology() {
   const containerRef = useRef(null);
@@ -13,8 +14,8 @@ export default function Technology() {
   });
 
   // Parallax effects
-  const yBg = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const yText = useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]);
+  const yBg = useResponsiveParallax(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const yText = useResponsiveParallax(scrollYProgress, [0, 1], ["15%", "-15%"]);
   const opacityText = useTransform(scrollYProgress, [0.2, 0.4, 0.6, 0.8], [0, 1, 1, 0]);
 
   return (

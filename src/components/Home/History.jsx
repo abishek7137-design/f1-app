@@ -3,8 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './History.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function History() {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <section className={styles.section}>
       <div className={styles.grid}>
@@ -12,7 +14,7 @@ export default function History() {
           className={styles.imageWrapper}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
+          viewport={viewport}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <img src="/f1-sequence/00001.jpg" alt="F1 Heritage" className={styles.image} />
@@ -22,7 +24,7 @@ export default function History() {
           className={styles.info}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
+          viewport={viewport}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
         >
           <h3 className={styles.subtitle}>Heritage</h3>

@@ -79,6 +79,14 @@
     font-size: 1.1rem;
   }
   .section {
-    height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+@media (max-width: 1199px) {
+  .background {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }

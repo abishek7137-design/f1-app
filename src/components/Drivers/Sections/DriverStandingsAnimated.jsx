@@ -5,6 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { Trophy, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { driversStandings } from '../../../data/driversData';
 import styles from './DriverStandingsAnimated.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 // Custom hook to animate the number counter
 const AnimatedNumber = ({ value }) => {
@@ -31,6 +32,7 @@ const AnimatedNumber = ({ value }) => {
 };
 
 export default function DriverStandingsAnimated() {
+  const viewport = useResponsiveViewport(0.2);
   const maxPoints = driversStandings[0].points; // Verstappen at 210
 
   const getRowGlow = (index) => {
@@ -88,7 +90,7 @@ export default function DriverStandingsAnimated() {
                   className={styles.row}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  viewport={viewport}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   style={{
                     backgroundColor: getRowGlow(index),
@@ -152,7 +154,7 @@ export default function DriverStandingsAnimated() {
                       className={styles.staticProgressFill}
                       initial={{ width: 0 }}
                       whileInView={{ width: `${(driver.points / maxPoints) * 100}%` }}
-                      viewport={{ once: true }}
+                      viewport={viewport}
                       transition={{ duration: 1.5, delay: index * 0.05 }}
                       style={{ backgroundColor: accentColor }}
                     />

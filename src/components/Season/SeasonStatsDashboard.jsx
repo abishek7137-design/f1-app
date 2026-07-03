@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Timer, Flag, Crosshair } from 'lucide-react';
 import styles from './SeasonStatsDashboard.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function SeasonStatsDashboard() {
+  const viewport = useResponsiveViewport(0.2);
   const stats = [
     { id: 'poles', title: 'Pole Positions', driver: 'Max Verstappen', value: 11, icon: <Flag size={24} />, color: '#3671C6' },
     { id: 'fastest', title: 'Fastest Laps', driver: 'Max Verstappen', value: 8, icon: <Timer size={24} />, color: '#3671C6' },
@@ -20,7 +22,7 @@ export default function SeasonStatsDashboard() {
           className={styles.subtitle}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
         >
           Performance
         </motion.h3>
@@ -28,7 +30,7 @@ export default function SeasonStatsDashboard() {
           className={styles.title}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ delay: 0.1 }}
         >
           Season Statistics
@@ -42,7 +44,7 @@ export default function SeasonStatsDashboard() {
             className={styles.statCard}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={viewport}
             transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className={styles.cardHeader}>

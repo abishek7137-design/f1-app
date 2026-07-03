@@ -1,6 +1,6 @@
 .section {
   width: 100vw;
-  min-height: 100vh;
+  min-min-height: 100svh;
   background-color: #020202;
   font-family: var(--font-body);
 }

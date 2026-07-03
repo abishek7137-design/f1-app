@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import Link from 'next/link';
 import styles from './ConstructorChampionship.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 // Reusable Counter for Points
 function Counter({ from, to, duration = 2 }) {
@@ -19,6 +20,7 @@ function Counter({ from, to, duration = 2 }) {
 }
 
 export default function ConstructorChampionship() {
+  const viewport = useResponsiveViewport(0.2);
   const teams = [
     { pos: 1, id: "mclaren", name: "McLaren", points: 516, color: "#FF8000" },
     { pos: 2, id: "redbull", name: "Red Bull Racing", points: 475, color: "#3671C6" },
@@ -109,7 +111,7 @@ export default function ConstructorChampionship() {
                   className={styles.drivingProgress}
                   initial={{ width: "0%" }}
                   whileInView={{ width: `${percentage}%` }}
-                  viewport={{ once: true, margin: "-10%" }}
+                  viewport={viewport}
                   transition={{ 
                     duration: 1.5, 
                     delay: 0.2 + (index * 0.15), // Staggered starting grid effect

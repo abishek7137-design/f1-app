@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100svh;
   background-color: #020202;
   display: flex;
   justify-content: center;
@@ -196,4 +196,12 @@
   .subtitle { font-size: 1rem; letter-spacing: 0.3em; margin-top: 1.5rem; }
   .badge { font-size: 0.7rem; }
   .badgeContainer { margin-bottom: 1.5rem; }
+}
+
+@media (max-width: 1199px) {
+  .backgroundImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }

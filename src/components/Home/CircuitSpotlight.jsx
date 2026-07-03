@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import styles from './CircuitSpotlight.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 // Reusable animated counter
 function Counter({ from, to, duration = 2, format = (v) => v }) {
@@ -18,6 +19,7 @@ function Counter({ from, to, duration = 2, format = (v) => v }) {
 }
 
 export default function CircuitSpotlight() {
+  const viewport = useResponsiveViewport(0.2);
   // Highly accurate abstract SVG Path for Monza
   const trackPath = "M250,750 L680,750 C710,750 710,725 725,725 C740,725 735,745 755,715 C775,675 770,485 755,415 C745,365 720,375 735,350 C750,325 755,295 725,265 C695,235 660,250 620,280 C580,310 525,370 480,390 C435,410 380,410 350,370 C320,330 290,340 280,370 C270,400 300,420 280,450 L180,550 C120,610 100,680 140,720 C170,750 210,750 250,750 Z";
 
@@ -63,7 +65,7 @@ export default function CircuitSpotlight() {
                 filter="url(#red-glow)"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
-                viewport={{ once: true, margin: "-20%" }}
+                viewport={viewport}
                 transition={{ duration: 3, ease: "easeInOut" }}
               />
 
@@ -74,7 +76,7 @@ export default function CircuitSpotlight() {
                 filter="url(#blue-drs-glow)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={viewport}
                 transition={{ duration: 1.5, delay: 3 }}
               />
               <motion.path 
@@ -83,7 +85,7 @@ export default function CircuitSpotlight() {
                 filter="url(#blue-drs-glow)"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={viewport}
                 transition={{ duration: 1, delay: 3.5 }}
               />
 
@@ -143,7 +145,7 @@ export default function CircuitSpotlight() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20%" }}
+            viewport={viewport}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h3 className={styles.circuitName}>Autodromo Nazionale Monza</h3>
@@ -155,7 +157,7 @@ export default function CircuitSpotlight() {
               className={styles.statItem}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <span className={styles.statLabel}>First Grand Prix</span>
@@ -168,7 +170,7 @@ export default function CircuitSpotlight() {
               className={styles.statItem}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <span className={styles.statLabel}>Circuit Length (km)</span>
@@ -181,7 +183,7 @@ export default function CircuitSpotlight() {
               className={styles.statItem}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <span className={styles.statLabel}>Laps</span>
@@ -194,7 +196,7 @@ export default function CircuitSpotlight() {
               className={styles.statItem}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <span className={styles.statLabel}>Lap Record</span>

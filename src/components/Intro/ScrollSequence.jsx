@@ -61,7 +61,9 @@ export default function ScrollSequence() {
       if (img && img.complete) {
         const hRatio = canvas.width / img.width;
         const vRatio = canvas.height / img.height;
-        const ratio = Math.max(hRatio, vRatio);
+        // On desktop, cover the screen (max). On mobile/tablet, contain to prevent cropping (min)
+        const isMobileOrTablet = window.innerWidth < 1200;
+        const ratio = isMobileOrTablet ? Math.min(hRatio, vRatio) : Math.max(hRatio, vRatio);
         
         const centerShiftX = (canvas.width - img.width * ratio) / 2;
         const centerShiftY = (canvas.height - img.height * ratio) / 2;

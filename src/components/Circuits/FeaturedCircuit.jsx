@@ -3,8 +3,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import styles from './FeaturedCircuit.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function FeaturedCircuit({ circuit }) {
+  const viewport = useResponsiveViewport(0.2);
   if (!circuit) return null;
 
   return (
@@ -23,7 +25,7 @@ export default function FeaturedCircuit({ circuit }) {
           className={styles.glassPanel}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewport}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className={styles.header}>

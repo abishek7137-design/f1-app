@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Cog, Hand, Footprints, UserCircle, CheckCircle2 } from 'lucide-react';
 import styles from './DriverEquipment.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 const enrichEquipment = (type, data) => {
   const enrichments = {
@@ -77,6 +78,7 @@ const AnimatedNumber = ({ value, suffix = "" }) => {
 };
 
 export default function DriverEquipment({ driver }) {
+  const viewport = useResponsiveViewport(0.2);
   const [hoveredNode, setHoveredNode] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -114,7 +116,7 @@ export default function DriverEquipment({ driver }) {
           className={styles.title}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           Race Technology
@@ -123,7 +125,7 @@ export default function DriverEquipment({ driver }) {
           className={styles.subtitle}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Every component engineered for milliseconds.

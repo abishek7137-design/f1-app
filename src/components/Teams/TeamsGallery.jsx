@@ -5,8 +5,10 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { teamsData } from '../../data/mockData';
 import { ChevronRight, Trophy, Flag } from 'lucide-react';
 import styles from './TeamsGallery.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function TeamsGallery() {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <>
       <section className={styles.heroSection}>
@@ -81,7 +83,7 @@ function TeamCard({ team, index }) {
       style={{ '--team-color': team.color, rotateX, rotateY, transformStyle: "preserve-3d" }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={viewport}
       transition={{ duration: 0.6, delay: (index % 2) * 0.15, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

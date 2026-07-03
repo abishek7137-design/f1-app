@@ -4,8 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy } from 'lucide-react';
 import styles from './TrophyRoom.module.css';
+import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 export default function TrophyRoom({ driver }) {
+  const viewport = useResponsiveViewport(0.2);
   if (!driver.trophies || driver.trophies.length === 0) return null;
 
   return (
@@ -25,7 +27,7 @@ export default function TrophyRoom({ driver }) {
               className={styles.trophyItem}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={viewport}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               whileHover={{ y: -10 }}
             >

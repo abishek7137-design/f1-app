@@ -3,15 +3,17 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import styles from './CircuitJourney.module.css';
+import { useResponsiveViewport, useResponsiveParallax } from '@/hooks/useResponsive';
 
 export default function CircuitJourneyItem({ circuit, index }) {
+  const viewport = useResponsiveViewport(0.2);
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
   
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const imageScale = useResponsiveParallax(scrollYProgress, [0, 1], [1, 1.15], 'scale');
   const isEven = index % 2 === 0;
 
   const imageIndex = (index % 8) + 1;
@@ -44,7 +46,7 @@ export default function CircuitJourneyItem({ circuit, index }) {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={viewport}
       >
         <motion.div className={styles.header} variants={itemVariants}>
           <span className={styles.country}>{circuit.country}</span>

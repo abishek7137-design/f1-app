@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100svh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -42,4 +42,12 @@
   text-transform: uppercase;
   margin: 0;
   text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+@media (max-width: 1199px) {
+  .background {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }
