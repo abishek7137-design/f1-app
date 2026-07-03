@@ -132,7 +132,7 @@ export default function ConstructorChampionship() {
                       transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                       <img 
-                        src={`/images/cars/car_${team.id}.png`} 
+                        src={`/images/cars/car_${team.id}.png`}
                         alt={team.name} 
                         className={styles.carModel} 
                         onError={(e) => handleImageError(e, team.id)}
