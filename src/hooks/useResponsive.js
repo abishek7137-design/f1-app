@@ -11,9 +11,9 @@ import { useTransform } from 'framer-motion';
  */
 export function useResponsiveViewport(desktopAmount = 0.4, mobileAmount = 0.1) {
   const [viewport, setViewport] = useState({
-    once: true,
-    amount: typeof window !== 'undefined' && window.innerWidth < 1200 ? mobileAmount : desktopAmount,
-    margin: "0px 0px 0px 0px"
+     once: true,
+     amount: desktopAmount,
+     margin: "0px 0px 0px 0px"
   });
 
   useEffect(() => {

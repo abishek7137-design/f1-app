@@ -59,7 +59,7 @@
 .section {
   position: relative;
   width: 100vw;
-  min-min-height: 100svh;
+  min-height: 100svh;
   background-color: #020202; 
   padding: 5rem 5% 10rem 5%;
   z-index: 10;

@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100vw;
-  min-min-height: 100svh;
+  min-height: 100svh;
   background-image: url('/images/live_hero_1782900764044.png');
   background-size: cover;
   background-position: center;

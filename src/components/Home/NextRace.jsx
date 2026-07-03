@@ -6,6 +6,7 @@ import styles from './NextRace.module.css';
 import { useResponsiveViewport } from '@/hooks/useResponsive';
 
 const NextRace = () => {
+  const viewport = useResponsiveViewport(0.2);
   return (
     <section className={`container ${styles.section}`}>
       <motion.div 

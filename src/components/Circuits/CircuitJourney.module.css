@@ -172,7 +172,7 @@
   .itemSection {
     flex-direction: column;
     height: auto;
-    min-min-height: 100svh;
+    min-height: 100svh;
   }
   .rowReverse {
     flex-direction: column;
