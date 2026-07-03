@@ -292,7 +292,22 @@
   opacity: 0.15;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
+  .standingsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .standingsGrid {
+    grid-template-columns: 1fr;
+  }
   .driverCard {
     flex-direction: column-reverse;
   }

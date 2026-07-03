@@ -12,7 +12,7 @@
 
 .headline {
   font-family: var(--font-heading);
-  font-size: 15vw;
+  font-size: clamp(60px, 15vw, 240px);
   color: #fff;
   letter-spacing: 2px;
   line-height: 0.8;

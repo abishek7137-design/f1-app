@@ -318,7 +318,7 @@
   opacity: 0.5;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .comparisonArena {
     flex-direction: column;
     align-items: stretch;
@@ -330,4 +330,10 @@
   }
   .dividerLine { display: none; }
   .teamColumn { max-width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .section { padding: 6rem 1rem; }
+  .title { font-size: 3rem; }
+  .teamCard { padding: 2rem; }
 }

@@ -115,3 +115,16 @@
   color: var(--f1-red);
   font-weight: 500;
 }
+
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

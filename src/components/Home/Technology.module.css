@@ -66,3 +66,19 @@
   line-height: 1.6;
   font-weight: 300;
 }
+
+@media (max-width: 767px) {
+  .title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+  .description {
+    font-size: 1.1rem;
+  }
+  .section {
+    height: 100vh;
+  }
+}

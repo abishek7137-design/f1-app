@@ -83,3 +83,28 @@
 .socialLink:hover {
   color: #fff;
 }
+
+@media (max-width: 1199px) {
+  .top {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 6rem 2rem 3rem 2rem;
+  }
+  .links {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .socials {
+    flex-wrap: wrap;
+  }
+}

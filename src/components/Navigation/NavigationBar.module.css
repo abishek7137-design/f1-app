@@ -96,7 +96,7 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .navWrapper {
     width: 90%;
     padding: 0 1.5rem;
@@ -117,7 +117,7 @@
   z-index: 1002;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .mobileMenuToggle {
     display: block;
   }

@@ -304,3 +304,37 @@
   color: rgba(255,255,255,0.8);
   font-style: italic;
 }
+
+@media (max-width: 1199px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .tableHeader, .driverRow {
+    grid-template-columns: 40px 150px 80px 80px 80px 60px 60px 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem 1rem 1rem;
+  }
+  .tableHeader, .driverRow {
+    grid-template-columns: 30px 120px 60px 60px;
+  }
+  .colGap, .colInt, .colSector, .tableHeader div:nth-child(n+5) {
+    display: none;
+  }
+  .lowerPanels {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .raceControlPanel, .radioPanel {
+    height: 250px;
+  }
+  .weatherPanel {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

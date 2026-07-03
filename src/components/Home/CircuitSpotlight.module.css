@@ -243,7 +243,7 @@
   color: #fff;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .circuitContainer {
     flex-direction: column;
     gap: 4rem;
@@ -256,5 +256,29 @@
   
   .circuitName {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .circuitContainer {
+    gap: 2rem;
+  }
+  .circuitName {
+    font-size: 2.5rem;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }

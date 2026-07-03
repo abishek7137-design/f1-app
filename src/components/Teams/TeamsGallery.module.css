@@ -351,13 +351,19 @@
   opacity: 0.8;
 }
 
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: 1fr; }
+@media (max-width: 1199px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
   .cardContent { width: 80%; }
 }
 
-@media (max-width: 768px) {
-  .cardContent { width: 100%; padding: 2rem; }
-  .imageOverlay { background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%); }
-  .statsGrid { grid-template-columns: 1fr; }
+@media (max-width: 767px) {
+  .section { padding: 6rem 1rem; }
+  .title { font-size: 3rem; }
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+  .cardContent { width: 100%; padding: 1.5rem; justify-content: flex-end; }
+  .imageOverlay { background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0) 100%); }
+  .statsGrid { grid-template-columns: 1fr; gap: 0.5rem; margin: 1rem 0; }
+  .bgImage { object-fit: contain; object-position: top center; height: 60%; }
+  .cardFooter { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .teamName { font-size: 2rem; }
 }

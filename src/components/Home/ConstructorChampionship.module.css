@@ -276,16 +276,23 @@
 }
 .teamRow:hover .floorReflection { opacity: 1; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .teamInfo { flex: 0 0 150px; padding-right: 1rem; }
   .carWrapper { width: 250px; height: 120px; }
   .position { font-size: 2rem; }
   .teamName { font-size: 1rem; }
 }
 
-@media (max-width: 768px) {
-  .teamRow { flex-direction: column; min-height: auto; }
-  .teamInfo { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem 0; }
-  .barTrack { height: 120px; border-radius: 0; }
+@media (max-width: 767px) {
+  .section { padding: 6rem 1rem; }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .title { font-size: 3rem; }
+  .teamRow { flex-direction: column; min-height: auto; gap: 1rem; margin-bottom: 2rem; }
+  .teamInfo { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem 0; width: 100%; justify-content: space-between; }
+  .barTrack { height: 100px; border-radius: 0; width: 100%; }
   .carWrapper { right: 0; width: 200px; height: 100px; }
 }

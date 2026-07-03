@@ -168,7 +168,7 @@
   transform: translateX(5px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .itemSection {
     flex-direction: column;
     height: auto;
@@ -192,5 +192,18 @@
     width: 100vw;
     padding: 3rem 2rem;
     background: #050505;
+  }
+}
+
+@media (max-width: 767px) {
+  .contentSide, .rowReverse .contentSide {
+    padding: 2rem 1rem;
+  }
+  .name {
+    font-size: 2.5rem;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

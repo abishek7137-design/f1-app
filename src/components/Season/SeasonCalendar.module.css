@@ -271,7 +271,7 @@
   border-color: #fff;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .cardContent { padding: 1.5rem; }
   .raceLeft { gap: 1.5rem; }
   .raceDate { padding-right: 1.5rem; }
@@ -279,7 +279,9 @@
   .quickStats { display: none; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .section { padding: 6rem 1rem; }
+  .title { font-size: 3rem; }
   .cardContent {
     flex-direction: column;
     align-items: flex-start;
@@ -287,9 +289,13 @@
   }
   .raceLeft {
     width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 1.5rem;
+    gap: 1rem;
   }
-  .raceDate { border-right: none; }
+  .raceDate { border-right: none; padding-right: 0; flex-direction: row; gap: 1rem; }
   .actionButton { width: 100%; justify-content: center; }
+  .raceRight { width: 100%; flex-direction: column; gap: 1rem; }
 }

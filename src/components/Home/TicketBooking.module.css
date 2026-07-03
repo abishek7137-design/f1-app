@@ -67,3 +67,13 @@
   box-shadow: 0 15px 40px rgba(232, 0, 45, 0.5);
   transform: translateY(-2px);
 }
+
+@media (max-width: 767px) {
+  .title {
+    font-size: clamp(3rem, 12vw, 4rem);
+  }
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

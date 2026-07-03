@@ -274,18 +274,29 @@
   text-align: right;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .timingHeader, .timingRow {
     grid-template-columns: 0.5fr 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr;
   }
   .speedValue, .speedTrap { display: none; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+  .title {
+    font-size: 3rem;
+  }
   .timingHeader, .timingRow {
-    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr;
+    padding: 1rem;
+    gap: 0.5rem;
   }
   .sectorContainer, .sectorHeader { display: none; }
   .tireContainer, .tireIcon { display: none; }
   .statusGroup { display: none; }
+  .driverName { font-size: 1.2rem; }
+  .lapTime { font-size: 1.2rem; }
+  .gap { font-size: 1rem; }
 }

@@ -88,3 +88,9 @@
 .ctaBtn:hover .icon {
   transform: translateX(5px);
 }
+
+@media (max-width: 767px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+}
