@@ -1,0 +1,196 @@
+.journeyContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemSection {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: #050505;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.rowReverse {
+  flex-direction: row-reverse;
+}
+
+.imageSide {
+  flex: 0 0 60%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(5,5,5,0.1) 0%, rgba(5,5,5,0.6) 80%, rgba(5,5,5,1) 100%);
+  pointer-events: none;
+}
+
+.rowReverse .imageOverlay {
+  background: linear-gradient(to left, rgba(5,5,5,0.1) 0%, rgba(5,5,5,0.6) 80%, rgba(5,5,5,1) 100%);
+}
+
+.contentSide {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6rem 0 3rem;
+  background: linear-gradient(90deg, rgba(5,5,5,1) 0%, rgba(10,10,10,0.9) 100%);
+  position: relative;
+  z-index: 5;
+}
+
+.rowReverse .contentSide {
+  padding: 0 3rem 0 6rem;
+  background: linear-gradient(270deg, rgba(5,5,5,1) 0%, rgba(10,10,10,0.9) 100%);
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.country {
+  font-family: var(--font-body);
+  color: var(--f1-red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4vw, 38px);
+  line-height: 1;
+  color: var(--text-white);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+}
+
+.statValue {
+  font-family: var(--font-stats);
+  color: var(--text-white);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.exploreBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text-white);
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  width: fit-content;
+}
+
+.exploreBtn span, .btnIcon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.btnGlow {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 24, 1, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.exploreBtn:hover {
+  border-color: var(--f1-red);
+  box-shadow: 0 0 20px rgba(255, 24, 1, 0.2);
+}
+
+.exploreBtn:hover .btnGlow {
+  transform: translateX(0);
+}
+
+.exploreBtn:hover .btnIcon {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .itemSection {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .rowReverse {
+    flex-direction: column;
+  }
+  .imageSide {
+    flex: 0 0 50vh;
+    width: 100vw;
+  }
+  .imageOverlay {
+    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 50%, transparent 100%);
+  }
+  .rowReverse .imageOverlay {
+    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 50%, transparent 100%);
+  }
+  .contentSide, .rowReverse .contentSide {
+    flex: 1;
+    width: 100vw;
+    padding: 3rem 2rem;
+    background: #050505;
+  }
+}

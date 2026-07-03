@@ -1,21 +1,20 @@
 .hero {
   position: relative;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--bg-primary);
+  background: var(--bg-primary);
 }
 
 .background {
   position: absolute;
-  top: -10%;
-  left: 0;
-  width: 100%;
+  inset: -10%;
+  width: 120%;
   height: 120%;
-  background-image: url('https://images.unsplash.com/photo-1541461975765-a6e5a408ff39?q=80&w=2000&auto=format&fit=crop');
+  background-image: url('/images/backgrounds/track-01.jpg');
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -24,7 +23,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.8) 70%, var(--bg-primary) 100%);
+  background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.9) 80%, rgba(5,5,5,1) 100%);
   z-index: 2;
 }
 
@@ -32,61 +31,15 @@
   position: relative;
   z-index: 3;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 0 2rem;
 }
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(80px, 12vw, 110px);
   line-height: 0.9;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   color: var(--text-white);
   text-transform: uppercase;
   margin: 0;
-}
-
-.subtitle {
-  font-family: var(--font-subheading);
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: var(--text-gray);
-  letter-spacing: 1px;
-}
-
-.scrollIndicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.scrollText {
-  font-family: var(--font-subheading);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: var(--text-gray);
-}
-
-.scrollLine {
-  width: 1px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.2);
-  position: relative;
-}
-
-.scrollDot {
-  width: 5px;
-  height: 5px;
-  background-color: var(--f1-red);
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: -2px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
