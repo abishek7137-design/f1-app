@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 800vh; 
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fixedWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0; 
+}
+
+.canvas {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
+  z-index: 10;
+}
+
+/* Cinematic Word Overlays */
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+}
+
+.cinematicWord {
+  font-family: var(--font-heading);
+  font-size: 12vw;
+  color: rgba(255, 255, 255, 0.85); /* White text with subtle transparency */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}

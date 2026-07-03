@@ -1,0 +1,295 @@
+.section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #020202; 
+  padding: 10rem 5%;
+  z-index: 10;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 5vw;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+  color: var(--f1-red);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.timelineGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.raceCard {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 140px;
+  display: flex;
+  cursor: pointer;
+}
+
+/* Base state for Hover physics */
+.raceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 20px rgba(255, 24, 1, 0.3);
+  border-color: rgba(255, 24, 1, 0.3);
+}
+
+.cardImageBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #050505; /* Base color */
+}
+
+/* Active Image */
+.aerialImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  filter: brightness(0.8) contrast(1.1);
+}
+
+.raceCard:hover .aerialImage {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.1);
+}
+
+/* Premium Dynamic Fallback when image is missing */
+.carbonFallback {
+  background-image: url('/images/ui/carbon-pattern.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.carbonFallback::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.raceCard:hover .carbonFallback {
+  background-color: rgba(255, 24, 1, 0.1);
+}
+
+/* Standard Dark Gradient Overlay */
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 60-70% dark gradient */
+  background: linear-gradient(to right, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.5) 100%);
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+
+/* Glass Reflection Sweep */
+.glassSweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: skewX(-20deg);
+  z-index: 3;
+  mix-blend-mode: overlay;
+  transition: left 0s;
+}
+
+.raceCard:hover .glassSweep {
+  left: 200%;
+  transition: left 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Existing Content Structure (Untouched Typography/Layout) */
+.cardContent {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+}
+
+.raceLeft {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.raceDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  padding-right: 3rem;
+}
+
+.dateMonth {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--f1-red);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.dateDays {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.raceInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.raceRound {
+  font-family: var(--font-stats);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.raceName {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+.location {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.raceRight {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.quickStats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-subheading);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.actionButton {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btnPrimary {
+  background-color: var(--f1-red);
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.btnSecondary {
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .cardContent { padding: 1.5rem; }
+  .raceLeft { gap: 1.5rem; }
+  .raceDate { padding-right: 1.5rem; }
+  .raceName { font-size: 1.5rem; }
+  .quickStats { display: none; }
+}
+
+@media (max-width: 768px) {
+  .cardContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .raceLeft {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1.5rem;
+  }
+  .raceDate { border-right: none; }
+  .actionButton { width: 100%; justify-content: center; }
+}

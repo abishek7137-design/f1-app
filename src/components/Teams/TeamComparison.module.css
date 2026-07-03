@@ -1,0 +1,333 @@
+.section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  /* Carbon fiber background pattern */
+  background-color: #020202;
+  background-image: url('/images/ui/carbon-pattern.png');
+  background-size: 800px;
+  background-blend-mode: multiply;
+  padding: 10rem 5%;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 5vw;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+  color: var(--f1-red);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.comparisonArena {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.teamColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+}
+
+.selectWrapper {
+  display: flex;
+}
+
+.selectBox {
+  appearance: none;
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.selectBox:hover {
+  background: rgba(20, 20, 20, 0.9);
+  box-shadow: 0 0 20px var(--team-color);
+}
+
+.selectBox option {
+  background: #050505;
+  color: #fff;
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+}
+
+/* Glassmorphism Team Card */
+.teamCard {
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.8);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.teamCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, var(--team-color) 0%, transparent 60%);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.teamCard:hover {
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.9), 0 0 40px var(--team-color);
+  transform: translateY(-5px);
+}
+
+.teamVisuals {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  min-height: 250px;
+  justify-content: center;
+}
+
+.logoContainer {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.teamLogo {
+  max-height: 100%;
+  max-width: 80%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.teamCard:hover .teamLogo {
+  transform: scale(1.1);
+}
+
+/* Typographic Logo Fallback */
+.logoFallback {
+  display: none; /* Shown via JS onError */
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.carContainer {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.teamCar {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+}
+
+.teamCard:hover .teamCar {
+  transform: translateY(-5px) scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 20px 15px rgba(0,0,0,0.8));
+}
+
+/* Silhouette Car Fallback */
+.carFallback {
+  display: none; /* Shown via JS onError */
+  width: 80%;
+  height: 30px;
+  border-radius: 50% 50% 10% 10% / 100% 100% 0 0;
+  position: absolute;
+  bottom: 20px;
+  opacity: 0.8;
+  filter: blur(2px);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Stats Styling */
+.statsContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.statRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.statLeft .statHeader { flex-direction: row; }
+.statRight .statHeader { flex-direction: row-reverse; }
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statValue {
+  font-family: var(--font-stats);
+  font-size: 1.8rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.barTrack {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.barFill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.textStatsContainer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.textStatRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textStatLeft { flex-direction: row; }
+.textStatRight { flex-direction: row-reverse; text-align: right; }
+
+.textStatLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.textStatValue {
+  font-family: var(--font-subheading);
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* VS Column */
+.vsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.vsCircle {
+  width: 60px;
+  height: 60px;
+  background: rgba(10,10,10,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.dividerLine {
+  width: 2px;
+  flex: 1;
+  margin-top: -10px;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .comparisonArena {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .vsColumn {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 100px;
+  }
+  .dividerLine { display: none; }
+  .teamColumn { max-width: 100%; }
+}

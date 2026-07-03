@@ -1,0 +1,337 @@
+.showcaseSection {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Environment */
+.backgroundEnvironment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.carbonGrid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+.smokeEffect {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(circle at 50% 50%, rgba(225,6,0,0.05) 0%, transparent 60%);
+  filter: blur(40px);
+  animation: smokePulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes smokePulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+  100% { transform: scale(1.1) translate(2%, 2%); opacity: 0.8; }
+}
+
+.redBeams {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(0deg, rgba(225,6,0,0.1) 0%, transparent 100%);
+  animation: breathe 4s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+/* Header */
+.header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 4rem 2rem 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(225,6,0,0.5);
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  color: rgba(255,255,255,0.6);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 1rem;
+}
+
+/* 3D Showcase Area */
+.showcaseWrapper {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  z-index: 5;
+}
+
+.silhouetteContainer {
+  position: relative;
+  height: 85%;
+  max-height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.silhouetteImage {
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.8));
+}
+
+.svgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Hotspots */
+.hotspotNode {
+  position: absolute;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%); /* Center perfectly on coordinate */
+}
+
+.hotspotNode.faded {
+  opacity: 0.2;
+}
+
+.pulseDot {
+  width: 16px;
+  height: 16px;
+  background: var(--f1-red);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: crosshair;
+}
+
+/* Glass Detail Panel */
+.glassPanel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(225, 6, 0, 0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(225,6,0,0.1);
+  z-index: 20;
+}
+
+.panelHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panelIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(225, 6, 0, 0.1);
+  border-radius: 50%;
+  border: 1px solid rgba(225,6,0,0.3);
+  flex-shrink: 0;
+}
+
+.panelTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.panelDesc {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.panelSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.specItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specKey {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+}
+
+.specVal {
+  font-family: var(--font-stats);
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.panelCert {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.8rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.certKey {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.certVal {
+  font-family: var(--font-stats);
+  font-size: 0.9rem;
+  color: var(--f1-red);
+}
+
+.techTitle {
+  display: block;
+  font-family: var(--font-subheading);
+  font-size: 0.8rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.techList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.techList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Bottom Performance Strip */
+.performanceStrip {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.8);
+  border-top: 1px solid rgba(225, 6, 0, 0.2);
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.perfStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.perfNum {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(225,6,0,0.5);
+}
+
+.perfLabel {
+  font-family: var(--font-subheading);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 1024px) {
+  .performanceStrip {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2rem; }
+  .showcaseWrapper { min-height: 400px; }
+  .glassPanel { width: 280px; }
+  .svgOverlay { display: none; }
+}

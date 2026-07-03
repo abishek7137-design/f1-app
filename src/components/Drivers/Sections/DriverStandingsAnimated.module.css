@@ -1,0 +1,174 @@
+.standingsSection {
+  width: 100%;
+  padding: 6rem 4rem;
+  background-color: #050505;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  color: rgba(255,255,255,0.4);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* Glassmorphism Table Card */
+.tableCard {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.carbonOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/ui/carbon-pattern.png');
+  background-size: 300px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tableHeader {
+  display: flex;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  background: rgba(15,15,15,0.8);
+}
+
+.rowProgressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--f1-red);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.staticProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.staticProgressFill {
+  height: 100%;
+  background: var(--f1-red);
+}
+
+/* Columns */
+.colPos { width: 60px; display: flex; align-items: center; justify-content: center; }
+.colDriver { flex: 2; display: flex; align-items: center; gap: 1.5rem; }
+.colPoints { flex: 1; font-family: var(--font-stats); font-size: 1.5rem; color: #fff; text-align: right; }
+.colStats { flex: 1; font-family: var(--font-stats); font-size: 1.2rem; color: rgba(255,255,255,0.7); text-align: center; }
+.colGap { flex: 1; font-family: var(--font-body); font-size: 0.9rem; color: rgba(255,255,255,0.5); text-align: center; }
+.colTrend { width: 60px; display: flex; align-items: center; justify-content: center; }
+
+.posNum {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Removed portrait classes */
+
+.driverMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.driverName {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.driverTeam {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.countryFlag {
+  font-family: var(--font-stats);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .colGap, .colTrend { display: none; }
+}
+
+@media (max-width: 768px) {
+  .standingsSection { padding: 4rem 1rem; }
+  .tableHeader { display: none; }
+  .colStats { display: none; }
+  .driverName { font-size: 1rem; }
+}

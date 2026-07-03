@@ -1,0 +1,68 @@
+.section {
+  position: relative;
+  width: 100vw;
+  height: 150vh; /* Extra height for deep parallax scrolling */
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  filter: grayscale(80%) contrast(120%) brightness(0.6);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #050505 0%, rgba(0,0,0,0.5) 50%, #050505 100%);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.5rem;
+  color: var(--f1-red);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 8vw;
+  color: #fff;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  text-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-weight: 300;
+}

@@ -1,0 +1,289 @@
+.section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  letter-spacing: 2px;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  color: var(--f1-red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.raceCard {
+  position: relative;
+  background: var(--surface);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.aerialBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.aerialOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.4) 100%);
+}
+
+.raceContentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.raceHeader {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 24, 1, 0.2), transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.raceInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.country {
+  font-family: var(--font-subheading);
+  color: var(--text-gray);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.raceName {
+  font-family: var(--font-heading);
+  color: var(--text-white);
+  font-size: 3rem;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.circuit {
+  font-family: var(--font-body);
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.countdown {
+  display: flex;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.timeUnit {
+  display: flex;
+  flex-direction: column;
+}
+
+.number {
+  font-family: var(--font-stats);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--f1-red);
+  line-height: 1;
+}
+
+.label {
+  font-family: var(--font-subheading);
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+}
+
+.raceBody {
+  display: flex;
+  padding: 2rem;
+  gap: 3rem;
+  background: transparent;
+}
+
+.trackMap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: var(--text-gray);
+  font-family: var(--font-subheading);
+  font-size: 0.9rem;
+}
+
+.statValue {
+  color: var(--text-white);
+  font-family: var(--font-stats);
+  font-size: 1rem;
+}
+
+.footer {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.bookBtn {
+  background-color: transparent;
+  border: 1px solid var(--f1-red);
+  color: var(--text-white);
+  padding: 1rem 3rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bookBtn:hover {
+  background-color: var(--f1-red);
+  box-shadow: 0 0 20px rgba(255, 24, 1, 0.4);
+}
+
+@media (max-width: 768px) {
+  .raceHeader {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .raceBody {
+    flex-direction: column;
+  }
+}
+
+/* Interactive Map Styling */
+.mapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.svgTrack {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(255, 24, 1, 0.4));
+}
+
+.trackBase {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 12;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trackHighlight {
+  stroke: var(--f1-red);
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(255, 24, 1, 0.8));
+}
+
+.cornerMarker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.markerDot {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cornerMarker:hover .markerDot {
+  transform: scale(1.5);
+  background-color: var(--f1-red);
+}
+
+.tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(10,10,10,0.9);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-family: var(--font-subheading);
+  font-size: 0.7rem;
+  color: #fff;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cornerMarker:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+

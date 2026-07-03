@@ -1,0 +1,640 @@
+.huntingGrounds {
+  width: 100%;
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 1rem;
+}
+
+/* Filters */
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--font-subheading);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.filterBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filterBtn.active {
+  background: var(--f1-red);
+  border-color: var(--f1-red);
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
+}
+
+.searchInput {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 250px;
+}
+
+.searchInput:focus {
+  border-color: var(--f1-red);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(225, 6, 0, 0.3);
+}
+
+/* Carousel */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.card {
+  min-width: 480px;
+  height: 650px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  cursor: pointer;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+  border-color: rgba(225, 6, 0, 0.3);
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 10s ease;
+  opacity: 0.4;
+  /* Abstract dark gradient placeholder */
+  background: linear-gradient(45deg, #0f0f0f, #1a1a1a, #050505);
+}
+
+.card:hover .cardBg {
+  transform: scale(1.08);
+  opacity: 0.6;
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .cardOverlay {
+  opacity: 0.8;
+}
+
+.circuitImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card:hover .circuitImageWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 15px rgba(225, 6, 0, 0.6);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.circuitHeroImage {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: brightness(0.8);
+}
+
+.card:hover .circuitHeroImage {
+  transform: scale(1.08);
+}
+
+.circuitImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0) 50%, rgba(17, 17, 17, 1) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.cardSubtitle {
+  font-family: var(--font-subheading);
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .statsGrid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statValue {
+  font-family: var(--font-stats);
+  font-size: 1.1rem;
+  color: #fff;
+  margin-top: 0.2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .buttonGroup {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cardBtn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-subheading);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  flex: 1;
+  justify-content: center;
+}
+
+.cardBtn:hover {
+  background: var(--f1-red);
+  border-color: var(--f1-red);
+}
+
+/* Fullscreen Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modalScrollWrapper {
+  width: 100%;
+  max-width: 1400px;
+  max-height: 90vh;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+}
+
+.modalScrollWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.modalScrollWrapper::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+.modalScrollWrapper::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.closeBtn {
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1100;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: var(--f1-red);
+  border-color: var(--f1-red);
+  transform: scale(1.1);
+}
+
+.modalHero {
+  height: 450px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem;
+  background: linear-gradient(45deg, #1a0505, #0a0a0a);
+}
+
+.modalHeroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  mix-blend-mode: luminosity;
+}
+
+.modalHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #0d0d0d 0%, transparent 100%);
+}
+
+.modalHeroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.modalTitle {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.modalSubtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.5rem;
+  color: var(--f1-red);
+  margin: 1rem 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.modalBody {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 4rem;
+}
+
+.quickFactsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.factCard {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.factCard:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(225,6,0,0.3);
+  transform: translateY(-5px);
+}
+
+.factIcon {
+  color: var(--f1-red);
+  margin-bottom: 1rem;
+}
+
+.factLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.factValue {
+  font-family: var(--font-stats);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+.weatherWidget {
+  background: linear-gradient(135deg, rgba(20,20,40,0.8), rgba(10,10,20,0.9));
+  border: 1px solid rgba(100,150,255,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weatherMain {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.weatherTemp {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: #fff;
+}
+
+.weatherDesc {
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+.weatherStats {
+  display: flex;
+  gap: 2rem;
+}
+
+.wStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mediaSectionTitle {
+  font-family: var(--font-subheading);
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mediaSectionTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.galleryItem {
+  height: 200px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 0.7;
+}
+
+.galleryItem:hover .galleryImg {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.mapSidebar {
+  position: sticky;
+  top: 4rem;
+  height: fit-content;
+}
+
+.interactiveMapCard {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.largeMapOutline {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 20px rgba(225,6,0,0.3));
+}
+
+.actionBtn {
+  width: 100%;
+  background: var(--f1-red);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.actionBtn:hover {
+  background: #ff1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(225,6,0,0.4);
+}
+
+@media (max-width: 1200px) {
+  .modalBody { grid-template-columns: 1fr; }
+  .mapSidebar { position: static; margin-top: 4rem; }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 3rem; }
+  .card { min-width: 320px; height: 500px; }
+  .modalHero { padding: 2rem; height: 300px; }
+  .modalTitle { font-size: 3rem; }
+  .modalBody { padding: 2rem; }
+  .quickFactsGrid { grid-template-columns: 1fr 1fr; }
+  .galleryGrid { grid-template-columns: 1fr; }
+  .weatherWidget { flex-direction: column; gap: 2rem; text-align: center; }
+}

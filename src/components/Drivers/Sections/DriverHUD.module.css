@@ -1,0 +1,99 @@
+.hudSection {
+  width: 100%;
+  padding: 6rem 4rem;
+  background-color: #050505;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Grid */
+.hudGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  background: rgba(15,15,15,0.8);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 4rem;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hudGrid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 5px;
+  background: var(--team-color);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 20px var(--team-color);
+  opacity: 0.5;
+}
+
+/* Gauge */
+.gaugeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.svgContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.gaugeValue {
+  font-family: var(--font-stats);
+  font-size: 2.5rem;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.gaugeLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hudSection { padding: 4rem 2rem; }
+  .hudGrid { grid-template-columns: 1fr 1fr; padding: 2rem; }
+}

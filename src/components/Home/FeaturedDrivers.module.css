@@ -1,0 +1,239 @@
+.section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #050505; 
+  padding: 10rem 5%;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 6vw;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.2rem;
+  color: var(--f1-red);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Staggered offsets for editorial feel */
+.driverCard:nth-child(2) {
+  margin-top: 6rem;
+}
+.driverCard:nth-child(3) {
+  margin-top: 3rem;
+}
+
+.driverCard {
+  position: relative;
+  height: 70vh;
+  background-color: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.driverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(100%);
+}
+
+.driverCard:hover .driverImage {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+}
+
+.driverContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 2rem;
+  z-index: 2;
+}
+
+.driverNumber {
+  font-family: var(--font-stats);
+  font-size: 3rem;
+  color: rgba(255,255,255,0.2);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.5s ease;
+}
+
+.driverCard:hover .driverNumber {
+  color: var(--f1-red);
+}
+
+.driverName {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  transform: translateY(20px);
+  opacity: 0.8;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.driverCard:hover .driverName {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.teamName {
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.glassmorphismOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.headerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.flag {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.statsContainer {
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-family: var(--font-stats);
+  font-size: 1.5rem;
+  color: var(--text-white);
+  font-weight: bold;
+}
+
+.statLabel {
+  font-family: var(--font-subheading);
+  font-size: 0.7rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.2rem;
+}
+
+.viewBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--f1-red);
+  color: var(--text-white);
+  font-family: var(--font-subheading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.viewBtn:hover {
+  background-color: #d11200;
+}
+
+.accentBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--f1-red);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.driverCard:hover {
+  box-shadow: 0 20px 40px rgba(255, 24, 1, 0.15);
+  transform: translateY(-10px);
+}
+
+.driverCard {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}

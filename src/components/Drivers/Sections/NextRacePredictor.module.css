@@ -1,0 +1,170 @@
+.predictorSection {
+  width: 100%;
+  padding: 6rem 4rem;
+  background-color: #050505;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  color: rgba(255,255,255,0.4);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.predictionCard {
+  background: rgba(15,15,15,0.8);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 4rem;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/ui/carbon-pattern.png');
+  background-size: 200px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.glassGlow {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--team-color) 0%, transparent 60%);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.gpBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.gpName {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.weatherBox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255,255,255,0.05);
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.targetBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.predictionResult {
+  font-family: var(--font-stats);
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.metricsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-left: 1rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metricLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.metricValue {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .predictorSection { padding: 4rem 2rem; }
+  .grid { grid-template-columns: 1fr; gap: 3rem; }
+  .targetBlock { border: none; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; }
+  .metricsBlock { padding-left: 0; }
+}

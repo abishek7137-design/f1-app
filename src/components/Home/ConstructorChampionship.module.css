@@ -1,0 +1,291 @@
+.section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #050505; 
+  padding: 8rem 5%;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Effects */
+.carbonBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,1)),
+    url('/images/ui/carbon-pattern.png') center/cover;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientLight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header */
+.sectionHeader {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+  z-index: 2;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 4vw;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  color: var(--f1-red);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.viewAll {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.viewAll:hover { color: #fff; }
+
+/* Main Chart */
+.chartContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.teamRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: stretch; /* Match track and info height */
+  min-height: 120px;
+  cursor: pointer;
+}
+
+/* Team Info (Left) */
+.teamInfo {
+  flex: 0 0 250px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.position {
+  font-family: var(--font-stats);
+  font-size: 3rem;
+  color: rgba(255,255,255,0.15);
+  line-height: 0.8;
+  transition: color 0.3s ease;
+}
+.teamRow:hover .position { color: rgba(255,255,255,0.4); }
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.teamName {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 0 0.3rem 0;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.teamRow:hover .teamName { color: var(--team-glow); }
+
+.pointsWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+.points {
+  font-family: var(--font-stats);
+  font-size: 1.5rem;
+  color: #fff;
+}
+.ptsLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* The Progress Track (Right) */
+.barTrack {
+  flex: 1;
+  position: relative;
+  background: rgba(255,255,255,0.02);
+  border-radius: 0 50px 50px 0;
+  overflow: visible; /* CRITICAL: Cars will stick out of the animated width */
+}
+
+.trackOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+}
+
+/* Animated Driving Progress Container */
+.drivingProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /* Pin car to the right edge of progress! */
+  align-items: center;
+  /* background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1)); */
+  border-radius: 0 50px 50px 0;
+  border-right: 2px solid var(--team-glow);
+  box-shadow: inset -10px 0 20px -10px var(--team-glow);
+}
+
+/* The Car Wrapper attached to the tip */
+.carWrapper {
+  position: absolute;
+  right: -50px; /* Offset so the nose lines up with the point line */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 350px; /* Fixed width relative to row */
+  height: 180px; /* Give it enough height to not crop the 3D model */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carModelContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carModel {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen; 
+  filter: contrast(1.1) brightness(1.2);
+  transition: filter 0.4s ease;
+}
+.teamRow:hover .carModel { filter: contrast(1.2) brightness(1.3); }
+
+/* Hover Physics */
+.underGlow {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.teamRow:hover .underGlow { opacity: 0.6; }
+
+.heatExhaust {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 80px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  filter: url(#heat-distortion) blur(2px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transform: translateY(-50%) scaleX(1.5);
+  pointer-events: none;
+}
+.teamRow:hover .heatExhaust { opacity: 1; }
+
+.lightSweep {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-30deg);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.teamRow:hover .lightSweep {
+  animation: sweep 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sweep {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.floorReflection {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 10px;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.teamRow:hover .floorReflection { opacity: 1; }
+
+@media (max-width: 1024px) {
+  .teamInfo { flex: 0 0 150px; padding-right: 1rem; }
+  .carWrapper { width: 250px; height: 120px; }
+  .position { font-size: 2rem; }
+  .teamName { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .teamRow { flex-direction: column; min-height: auto; }
+  .teamInfo { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem 0; }
+  .barTrack { height: 120px; border-radius: 0; }
+  .carWrapper { right: 0; width: 200px; height: 100px; }
+}
