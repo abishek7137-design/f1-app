@@ -6,7 +6,7 @@ import { Activity } from 'lucide-react';
 import styles from './DriverHUD.module.css';
 import { useResponsiveViewport } from '@/hooks/useResponsive';
 
-const Gauge = ({ label, value, color }) => {
+const Gauge = ({ label, value, color, viewport }) => {
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (value / 100) * circumference;
@@ -59,14 +59,14 @@ export default function DriverHUD({ driver }) {
         </div>
 
         <div className={styles.hudGrid} style={{ '--team-color': driver.teamColor }}>
-          <Gauge label="Reaction Time" value={hud.reaction} color={driver.teamColor} />
-          <Gauge label="Qualifying Pace" value={hud.qualifying} color={driver.teamColor} />
-          <Gauge label="Race Pace" value={hud.racePace} color={driver.teamColor} />
-          <Gauge label="Wet Weather" value={hud.wetWeather} color={driver.teamColor} />
-          <Gauge label="Tyre Management" value={hud.tyreManagement} color={driver.teamColor} />
-          <Gauge label="Consistency" value={hud.consistency} color={driver.teamColor} />
-          <Gauge label="Overtaking" value={hud.overtaking} color={driver.teamColor} />
-          <Gauge label="Mental Strength" value={hud.mentalStrength} color={driver.teamColor} />
+          <Gauge label="Reaction Time" value={hud.reaction} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Qualifying Pace" value={hud.qualifying} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Race Pace" value={hud.racePace} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Wet Weather" value={hud.wetWeather} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Tyre Management" value={hud.tyreManagement} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Consistency" value={hud.consistency} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Overtaking" value={hud.overtaking} color={driver.teamColor} viewport={viewport} />
+          <Gauge label="Mental Strength" value={hud.mentalStrength} color={driver.teamColor} viewport={viewport} />
         </div>
 
       </div>

@@ -41,7 +41,12 @@ export default function TeamsGallery() {
 
         <div className={styles.grid}>
           {teamsData.map((team, index) => (
-            <TeamCard key={team.id} team={team} index={index} />
+            <TeamCard
+             key={team.id}
+             team={team}
+             index={index}
+              viewport={viewport}
+             />
           ))}
         </div>
       </section>
@@ -49,7 +54,7 @@ export default function TeamsGallery() {
   );
 }
 
-function TeamCard({ team, index }) {
+function TeamCard({ team, index, viewport }) {
   const cardRef = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
